@@ -1,32 +1,20 @@
 package ru.skypro;
 
-public class Car extends Transport implements ServiceInterface {
+public class Car extends Transport implements Service {
 
 
     public Car(String modelName, int wheelsCount) {
       super(modelName, wheelsCount);
     }
 
-    public String getModelName() {
-        return modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public int getWheelsCount() {
-        return wheelsCount;
-    }
-
-    public void setWheelsCount(int wheelsCount) {
-        this.wheelsCount = wheelsCount;
-    }
-
-
 
     @Override
-    public void check(Car car, Bicycle bicycle, Truck truck) {
+    public void check() {
+            System.out.println("Обслуживаем " + getModelName());
+            for (int i = 0; i < getWheelsCount(); i++) {
+                updateTyre();
+            }
+            checkEngine();
 
     }
 
